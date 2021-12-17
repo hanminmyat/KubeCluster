@@ -41,7 +41,7 @@ echo "[Task 7] Install kubernetes (kubeadm,kubelet, kubectl)"
 apt install -qq -y kubeadm=1.21.0-00 kubelet=1.21.0-00 kubectl=1.21.0-00 >/dev/null 2>&1
 
 echo "[Task 8] Enable ssh password auth"
-sed -i "s/^PasswordAuthentication .*/PasswordAuthentication yes/' /etc/ssh/sshd_config"
+sed -i 's/^PasswordAuthentication .*/PasswordAuthentication yes/' /etc/ssh/sshd_config
 echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
 systemctl reload sshd_config
 
