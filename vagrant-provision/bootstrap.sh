@@ -43,7 +43,7 @@ apt install -qq -y kubeadm=1.21.0-00 kubelet=1.21.0-00 kubectl=1.21.0-00 >/dev/n
 echo "[Task 8] Enable ssh password auth"
 sed -i 's/^PasswordAuthentication .*/PasswordAuthentication yes/' /etc/ssh/sshd_config
 echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
-systemctl reload sshd_config
+systemctl reload sshd
 
 echo "[Task 9] Set Root Password"
 echo -e "kubeadmin\nkubeadmin" | passwd root >/dev/null 2>&1
