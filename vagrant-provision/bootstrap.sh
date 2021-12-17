@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 echo "[Task 1] Disable swap"
 sed -i '/swap/d' /etc/fstab
@@ -22,6 +22,8 @@ net.bridge.bridge-nf-call-ip6tables = 1
 net.ipv4.ip_forward = 1
 EOF
 sysctl --system >/dev/null 2>&1
+
+echo "nameserver 8.8.8.8" | tee /etc/resolv.conf >/dev/null 2>&1
 
 echo "[Task 5] Install Containerd runtime"
 apt update -qq >/dev/null 2>&1
